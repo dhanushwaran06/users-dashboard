@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <body>
+       <link rel="stylesheet" href="login.css">
+       <div class="nav-bar">
+        <a href="dashbord.html">
+        <img
+          src="./assets/logo.png"
+          alt=""
+          style="width: 60px; padding-left: 130px; padding-top: 10px" /> </a>
+          <h1>TRACKER</h1>
+      </div>
+       <div class="home">
+        <img src="./assets/imgBG.png">
+       </div>
+        <div class="body-wrap">
+       <div class="bod">
+         <div class="container">
+          <label>LogIn</label>
+          <form  class="form" onsubmit="return validateInputs()" >
+            <div class="input-group">
+              <label for="email"></label>
+              <input type="text" id="email" name="email" placeholder="    Your email">
+              <div class="error"></div>
+          </div>
+          <div class="input-group">
+              <label for="password"></label>
+              <input type="password" id="password" name="password" placeholder="   Your password">
+              <div class="error"></div>
+          </div>
+          <button type="submit" onclick="validateInputs()">Register</button>
+          <span id="error1"></span>
+          </form>
+          </div>
+        </div>
+      </div>
+       <script src="script.js" defer></script>
+    </body>
+    <footer>
+      <h2 style="font-family: 'DM Sans'; font-style: normal">Tracker</h2>
+      <br />
+      <hr />
+      <br />
+      <div class="foot-bar">
+        <ul style="font-family: 'DM Sans'; font-style: normal; font-weight: 400">
+          <li><a class="active" href="#Home">Home</a></li>
+          <li><a href="#news">AboutUs</a></li>
+          <li><a href="#contact">ContactUs</a></li>
+          <li style="float: right">
+            <a href="">© 2023 Tracker.All rights reserved.</a>
+          </li>
+        </ul>
+        <br />
+      </div>
+    </footer>
+</html>
