@@ -17,7 +17,7 @@
        <div class="bod">
          <div class="container">
           <label>LogIn</label>
-          <form  class="form" onsubmit="return validateInputs()" >
+          <form  class="form" onsubmit="return validate()" >
             <div class="input-group">
               <label for="email"></label>
               <input type="text" id="email" name="email" placeholder="    Your email">
@@ -28,7 +28,7 @@
               <input type="password" id="password" name="password" placeholder="   Your password">
               <div class="error"></div>
           </div>
-          <button type="submit" onclick="validateInputs()">Register</button>
+          <button type="submit" onclick="validate()">Register</button>
           <span id="error1"></span>
           </form>
           </div>
