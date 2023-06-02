@@ -22,39 +22,49 @@ function validate() {
 
 //! for api fatch
 
-const pokedex = document.getElementById("displaydex");
+fetch("https://randomuser.me/api/?results=10")
+  .then((res) => {
+    console.log(res);
+    return res.json();
+  })
+  .then((data) => {
+    console.log(data);
+    let markup = [];
+    let names = [];
+    let email = [];
+    let city = [];
 
-const fetchPokemon = () => {
-  const promises = [];
-  for (let i = 1; i <= 9; i++) {
-    const url = `https://randomuser.me/api/?results=10${i}`;
-    promises.push(fetch(url).then((res) => res.json()));
-  }
-  Promise.all(promises).then((results) => {
-    const pokemon = results.map((results) => ({
-      name: results.name.first,
-      email: results.email,
-      city: results.location.city,
-      pic: results.picture.large,
-    }));
-    displayPokemon(pokemon);
-  });
-};
+    for (let i = 0; i < 10; i++) {
+      names = `<h1>${data.results[i].name.first}</h1>
+             `;
+      email = `<h3>${data.results[i].email}</h3>
+             `;
+      city = `<h3>${data.results[i].location.city}</h3>
+             `;
+      markup = `<img src="${data.results[i].picture.large}"></img>
+             `;
 
-const displayPokemon = (pokemon) => {
-  console.log(pokemon);
-  const pokemonHTMLString = pokemon.map(
-    (pokeman) => `
-      <li>
-              <img src="${pokeman.picture.large}"/>
-             <h2> ${pokeman.name.first}</h2>
-              <h2>${pokeman.email}</h2>
-               <h2>${pokeman.location.city}</h2>
-             </li>
-    `,
-  );
+      document.querySelector("p").insertAdjacentHTML("beforeend", markup);
+      document.querySelector("h4").insertAdjacentHTML("beforeend", names);
+      document.querySelector("h4").insertAdjacentHTML("beforeend", email);
+      document.querySelector("h4").insertAdjacentHTML("beforeend", city);
+    }
+  })
+  .catch((error) => console.log(error));
 
-  pokedex.innerHTML = pokemonHTMLString;
-};
-
-fetchPokemon();
+  const body = document.querySelector(".all");
+  let cd = "";
+  for(let i = 1 ; i <= 10 ; i++){
+    cd+=`
+    <div class="container">
+    <div class="cards">
+    <div class="side-cards">
+    <div class="dummy">
+    </div>
+    </div>
+    </div>
+    </div>  
+    `;
+    
+}
+body.innerHTML=cd;
